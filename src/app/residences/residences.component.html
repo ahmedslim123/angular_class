@@ -1,13 +1,15 @@
-<h3>Liste des Résidences</h3>
 <div class="container">
-  <div *ngFor="let item of listResidences">
+  <div *ngFor="let item of filteredResidences()">
     <div class="card">
       <img class="card-img-top" [src]="item.image" alt="Residence Image">
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
         <p class="card-text">Status: {{ item.status }}</p>
-        <button class="btn btn-primary" (click)="showLocation(item)">Show Location</button>
+        <button class="btn btn-info" [routerLink]="'/apartments-by-residence/' + item.id">
+          Appartements List
+        </button>
       </div>
     </div>
   </div>
 </div>
+

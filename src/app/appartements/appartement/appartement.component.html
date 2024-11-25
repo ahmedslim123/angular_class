@@ -1,0 +1,34 @@
+<h1>Liste des Appartements</h1>
+
+<!-- Bouton pour ajouter un nouvel appartement -->
+<button class="btn btn-success" routerLink="/add-apartment">Ajouter un Appartement</button>
+
+<!-- Liste des appartements -->
+<div *ngIf="apartments.length > 0; else noApartments">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Numéro</th>
+        <th>Étage</th>
+        <th>Surface</th>
+        <th>Terrasse</th>
+        <th>Surface Terrasse</th>
+        <th>Catégorie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let apartment of apartments">
+        <td>{{ apartment.apartNum }}</td>
+        <td>{{ apartment.floorNum }}</td>
+        <td>{{ apartment.surface }} m²</td>
+        <td>{{ apartment.terrace ? 'Oui' : 'Non' }}</td>
+        <td>{{ apartment.surfaceterrace }} m²</td>
+        <td>{{ apartment.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noApartments>
+  <p>Aucun appartement trouvé.</p>
+</ng-template>

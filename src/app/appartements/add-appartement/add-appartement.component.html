@@ -1,0 +1,39 @@
+<h1>Ajouter un Appartement</h1>
+
+<form (ngSubmit)="saveApartment()">
+  <div>
+    <label for="apartNum">Numéro d'Appartement :</label>
+    <input id="apartNum" [(ngModel)]="apartment.apartNum" name="apartNum" required />
+  </div>
+  <div>
+    <label for="floorNum">Numéro d'Étage :</label>
+    <input id="floorNum" [(ngModel)]="apartment.floorNum" name="floorNum" required />
+  </div>
+  <div>
+    <label for="surface">Surface (m²) :</label>
+    <input id="surface" [(ngModel)]="apartment.surface" name="surface" required />
+  </div>
+  <div>
+    <label for="terrace">Terrasse :</label>
+    <input id="terrace" type="checkbox" [(ngModel)]="apartment.terrace" name="terrace" />
+  </div>
+  <div>
+    <label for="surfaceterrace">Surface de la Terrasse (m²) :</label>
+    <input id="surfaceterrace" [(ngModel)]="apartment.surfaceterrace" name="surfaceterrace" [disabled]="!apartment.terrace" />
+  </div>
+  <div>
+    <label for="category">Catégorie :</label>
+    <select id="category" [(ngModel)]="apartment.category" name="category" required>
+      <option value="T1">T1</option>
+      <option value="T2">T2</option>
+      <option value="T3">T3</option>
+      <option value="T4">T4</option>
+    </select>
+  </div>
+  <div>
+    <label for="ResidenceId">ID de la Résidence :</label>
+    <input id="ResidenceId" [(ngModel)]="apartment.ResidenceId" name="ResidenceId" required />
+  </div>
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+  <button type="button" class="btn btn-secondary" routerLink="/apartments">Annuler</button>
+</form>

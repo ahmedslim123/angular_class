@@ -1,0 +1,15 @@
+<div *ngIf="residence">
+    <h1>Détails de la résidence</h1>
+    <img [src]="residence.image" alt="{{ residence.name }}">
+    <p><strong>Nom :</strong> {{ residence.name }}</p>
+    <p><strong>Adresse :</strong> {{ residence.address }}</p>
+    <p><strong>Statut :</strong> {{ residence.status }}</p>
+    
+    <div class="buttons">
+      <button class="btn btn-secondary" routerLink="/residences">Retour à la liste</button>
+      <button class="btn btn-primary" (click)="goToNextResidence()">Next</button>
+      <button class="btn btn-success" routerLink="/add-residence">Add Residence</button>
+      <button class="btn btn-warning" [routerLink]="['/update-residence', residence.id]">Update Residence</button>
+    </div>
+  </div>
+  
